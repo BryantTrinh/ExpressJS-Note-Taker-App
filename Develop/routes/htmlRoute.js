@@ -7,7 +7,7 @@ const router = require('express').Router();
 
 // router.get the /notes path and the file. Use path.join dirname + notes.html path
 
-router.get('/notes, (res, res) =>{
+router.get('/notes', (res, res) =>{
   res.sendFile(path.join(__dirname, '../public/notes.html'));
 });
 
@@ -20,3 +20,4 @@ router.get('*', (req, res) => {
 // module export this to use
 
 module.exports = router;
+
