@@ -21,26 +21,26 @@ router.get('/notes', (req, res) => {
 		.catch((err) => res.status(500).json(err));
 });
 
-// POST to notes, use req res, .addNotes using with req.body 
+// POST to notes, use req res, .addNotes using with req.body
 // after adding to body of /notes, res to send json containing note
-// end with catch error 
+// end with catch error
 
 router.post('/notes', (req, res) => {
-  store
-    .addNote(req.body)
-    .then((note) => res.json(note))
-    .catch((err) => res.status(500).json(err));
+	store
+		.addNote(req.body)
+		.then((note) => res.json(note))
+		.catch((err) => res.status(500).json(err));
 });
 
 // For bonus, DELETE /api/notes/:id should receive a query parameter that contains the id of a note to delete. To delete a note, you'll need to read all notes from the db.json file, remove the note with the given id property, and then rewrite the notes to the db.json file.
 
-
-// router.delete('/notes/:id', (req, res) => {
-//   store
-//   .removeNote(req.params.id)
-//   // not sure what to do here....
-//   .catch((err) => res.status(500).json(err));
-// });
-
+router.delete('/notes/:id', (req, res) => {
+	store.removeNote(req.params.id);
+	if (err) {
+		res.send(500);
+	} else {
+		res.send(200);
+	}
+});
 
 module.exports = router;

@@ -8,8 +8,10 @@ const htmlRoute = require('./routes/htmlRoute');
 
 const app = express();
 
+const port = 3000;
+
 app.get('/', function (req, res) {
-	res.send('Hello World!');
+	res.send('Hello World! GET is working');
 });
 
 // I think next step is middleware for route, parse, and static.
@@ -18,10 +20,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/api', apiRoute);
-app.use('/html', htmlRoute);
+app.use('/', htmlRoute);
 
 // this starts server with port 3000
 
-app.listen(3000, function () {
+app.listen( port, function () {
 	console.log('Listening on port 3000');
 });
