@@ -11,9 +11,10 @@ const store = require('../db/store');
 
 // use GET method & req/res with the notes from database and from store in db folder
 
+// get notes -> receive notes then return the notes -> catch error(500)
+
 router.get('/notes', (req, res) => {
 	store
-		// get notes -> receive notes then return the notes -> catch error(500)
 		.getNotes()
 		.then((notes) => {
 			return res.json(notes);
@@ -41,7 +42,7 @@ router.delete('/notes/:id', (req, res) => {
 		res.send(500);
 	} else {
 		res.send(200);
-	}
+	};
 });
 
 module.exports = router;
