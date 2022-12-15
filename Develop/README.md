@@ -17,7 +17,7 @@ AS a user, I want to be able to write and save notes, so that I can organize and
 
 
 
-## Mock-Up
+## USAGE
 
 The following images show the web application's appearance and functionality:
 
